@@ -1,6 +1,4 @@
 # Backend endpoints documentation
-Documentation for using the api endpoints
-## Endpoints: 
 - [Auth](#auth-endpoint) <br>
 - [Users](#users-endpoint) <br>
 - [Workspaces](#workspaces-endpoint) <br>
@@ -19,13 +17,13 @@ JSON payload (request):
     "password": string
 }
 ```
-
+---
 #### Log Out
 
 HTTP Method: DELETE <br>
 API endpoint: `/auth/logout` <br> 
 
-
+---
 #### Request for new access token
 
 HTTP Method: POST <br>
@@ -48,7 +46,7 @@ JSON payload (request):
     "password": string
 }
 ```
-
+---
 #### User details
 HTTP Method: GET <br>
 API endpoint: `/users/me` <br> 
@@ -61,7 +59,7 @@ JSON payload (response):
     "Email": string
 }
 ```
-
+---
 #### Update user password
 HTTP Method: PUT <br>
 API endpoint: `/users/me/password` <br> 
@@ -72,7 +70,7 @@ JSON payload (request):
     "newPassword": number
 }
 ```
-
+---
 #### Delete user account
 HTTP Method: DELETE <br>
 API endpoint: `/users/me` <br> 
@@ -94,7 +92,7 @@ JSON payload (response):
     "DateCreated": string
 }
 ```
-
+---
 #### Workspace
 HTTP Method: GET <br>
 API endpoint: `/workspaces/:workspaceId` <br> 
@@ -107,7 +105,7 @@ JSON payload (response):
     "DateCreated": string
 }
 ```
-
+---
 #### Create new Workspace
 HTTP Method: POST <br>
 API endpoint: `/workspaces` <br> 
@@ -119,7 +117,7 @@ JSON payload (request):
     "dateCreated": string
 }
 ```
-
+---
 #### Delete Workspace
 HTTP Method: DELETE <br>
 API endpoint: `/workspaces/:workspaceId`
@@ -150,7 +148,7 @@ JSON payload (response):
     "PDFURL": string
 }
 ```
-
+---
 #### Create new Research paper
 HTTP Method: POST <br>
 API endpoint: `/workspaces/:workspaceId/researchPapers` <br> 
@@ -170,7 +168,7 @@ JSON payload (request):
     "pdfUrl": string
 }
 ```
-
+---
 #### Update Research paper column
 HTTP Method: PUT <br>
 API endpoint: `/workspaces/:workspaceId/researchPapers` <br> 
@@ -189,9 +187,40 @@ Editable Research paper columns are:
 - Findings
 
 
-> Note: <br> <br>
-"columnName" = column of research paper in the database <br>
-"value" = updated value of the column to be pushed to the database
+> [!NOTE]
+>"columnName" = column of research paper in the database <br>
+> "value" = updated value of the column to be pushed to the database
 
-## AI endpoint
-no contents yet
+
+## AI endpoint (not yet in service)
+#### Extract Lit matrix table
+HTTP Method: POST <br>
+API endpoint: `/ai/extract` <br>
+
+JSON payload (request):
+```
+{
+    "pdfURLs": string[]
+}
+```
+> [!IMPORTANT]
+> The array pdfURLs should only contain 1 - 3 PDF URLs
+
+<br>
+
+JSON payload (response):
+```
+[
+    {
+        "title": string,
+        "authors": string,
+        "publicationYear": number,
+        "keywords": string,
+        "abstract": string,
+        "methods": string,
+        "findings": string,
+        "apa": string,
+        "ieee": string
+    }
+]
+```
