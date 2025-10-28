@@ -4,6 +4,8 @@
 - [Workspaces](#workspaces-endpoint) <br>
 - [Research Papers](#research-papers-endpoint) <br>
 
+
+
 ## Auth endpoint
 #### Log In 
 
@@ -17,19 +19,20 @@ JSON payload (request):
     "password": string
 }
 ```
----
+
 #### Log Out
 
 HTTP Method: DELETE <br>
 API endpoint: `/auth/logout` <br> 
 
----
 #### Request for new access token
 
 HTTP Method: POST <br>
 API endpoint: `/auth/token` <br> 
 
 <br><br>
+
+
 
 
 ## Users endpoint
@@ -46,7 +49,6 @@ JSON payload (request):
     "password": string
 }
 ```
----
 #### User details
 HTTP Method: GET <br>
 API endpoint: `/users/me` <br> 
@@ -59,7 +61,6 @@ JSON payload (response):
     "Email": string
 }
 ```
----
 #### Update user password
 HTTP Method: PUT <br>
 API endpoint: `/users/me/password` <br> 
@@ -70,12 +71,12 @@ JSON payload (request):
     "newPassword": number
 }
 ```
----
 #### Delete user account
 HTTP Method: DELETE <br>
 API endpoint: `/users/me` <br> 
 
 <br><br>
+
 
 
 
@@ -92,7 +93,6 @@ JSON payload (response):
     "DateCreated": string
 }
 ```
----
 #### Workspace
 HTTP Method: GET <br>
 API endpoint: `/workspaces/:workspaceId` <br> 
@@ -105,7 +105,6 @@ JSON payload (response):
     "DateCreated": string
 }
 ```
----
 #### Create new Workspace
 HTTP Method: POST <br>
 API endpoint: `/workspaces` <br> 
@@ -117,13 +116,13 @@ JSON payload (request):
     "dateCreated": string
 }
 ```
----
 #### Delete Workspace
 HTTP Method: DELETE <br>
 API endpoint: `/workspaces/:workspaceId`
 
 
 <br><br>
+
 
 
 
@@ -148,7 +147,6 @@ JSON payload (response):
     "PDFURL": string
 }
 ```
----
 #### Create new Research paper
 HTTP Method: POST <br>
 API endpoint: `/workspaces/:workspaceId/researchPapers` <br> 
@@ -168,7 +166,6 @@ JSON payload (request):
     "pdfUrl": string
 }
 ```
----
 #### Update Research paper column
 HTTP Method: PUT <br>
 API endpoint: `/workspaces/:workspaceId/researchPapers` <br> 
@@ -188,8 +185,10 @@ Editable Research paper columns are:
 
 
 > [!NOTE]
->"columnName" = column of research paper in the database <br>
+> "columnName" = column of research paper in the database <br>
 > "value" = updated value of the column to be pushed to the database
+
+
 
 
 ## AI endpoint (not yet in service)
@@ -222,5 +221,25 @@ JSON payload (response):
         "apa": string,
         "ieee": string
     }
+]
+```
+
+
+
+## Search endpoint
+#### Get research papers using SerpAPI
+HTTP Method: GET <br>
+API endpoint: `/search/papers?q={encodeURIComponent(query)}` <br>
+
+JSON payload (response):
+```
+[
+    {
+        "title": string,
+        "link": string,
+        "abstractSnippet": string,
+        "authorsSummary": string
+    }
+
 ]
 ```
