@@ -3,6 +3,8 @@
 - [Users](#users-endpoint) <br>
 - [Workspaces](#workspaces-endpoint) <br>
 - [Research Papers](#research-papers-endpoint) <br>
+- [AI](#ai-endpoint) <br>
+- [Search](#search-endpoint)
 
 
 
@@ -191,7 +193,11 @@ Editable Research paper columns are:
 
 
 
-## AI endpoint (not yet in service)
+## AI endpoint
+
+> [!NOTE]
+> This endpoint is not yet in service <br>
+
 #### Extract Lit matrix table
 HTTP Method: POST <br>
 API endpoint: `/ai/extract` <br>
