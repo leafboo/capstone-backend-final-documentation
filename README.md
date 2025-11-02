@@ -70,7 +70,8 @@ API endpoint: `/users/me/password` <br>
 JSON payload (request):
 ```
 {
-    "newPassword": number
+    "oldPassword": string,
+    "newPassword": string
 }
 ```
 #### Delete user account
