@@ -244,7 +244,8 @@ JSON payload (response):
         "title": string,
         "link": string,
         "abstractSnippet": string,
-        "authorsSummary": string
+        "authorsSummary": string,
+        "numberOfPages": number,
     }
 
 ]
