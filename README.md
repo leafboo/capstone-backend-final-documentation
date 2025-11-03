@@ -246,6 +246,7 @@ JSON payload (response):
         "link": string,
         "abstractSnippet": string,
         "authorsSummary": string,
+        "isViewableInWeb": boolean,
         "numberOfPages": number,
     }
 
