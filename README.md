@@ -1,3 +1,4 @@
+
 # Backend endpoints documentation
 - [Auth](#auth-endpoint) <br>
 - [Users](#users-endpoint) <br>
@@ -236,19 +237,49 @@ JSON payload (response):
 ## Search endpoint
 #### Get research papers using SerpAPI
 HTTP Method: GET <br>
-API endpoint: `/search/papers?q={encodeURIComponent(query)}` <br>
+API endpoint: `/search/papers?q={encodeURIComponent(queryValue)}&offset={encodeURIComponent(offsetValue)}` <br>
+
+
 
 JSON payload (response):
 ```
-[
-    {
-        "title": string,
-        "link": string,
-        "abstractSnippet": string,
-        "authorsSummary": string,
-        "isViewableInWeb": boolean,
-        "numberOfPages": number,
-    }
+{
+    "organic_results": [
+        {
+            "title": string,
+            "snippet": string,
+            "link": string,
+            "publication_info": {
+                "summary": string
+            },
+            "resources": [
+                {
+                    "title": string,
+                    "file_format": string,
+                    "link": string
+                }
+                
+            ]
+        }
+    ]
 
-]
+}
 ```
+<img width="1602" height="621" alt="Image" src="https://github.com/user-attachments/assets/fa8c09d5-b4e9-413f-8727-0e2eb7028892" /> <br>
+
+> [!IMPORTANT]
+> Not all organic result objects have the resources array 
+
+> [!NOTE]
+> offset: 0 is equal to the 1st page in the pagination, offset: 10 is the 2nd page, offset: 20 is the 3rd page, etc. <br>
+> each offset has 10 research papers
+
+
+| offset value | pagination/page |
+| --- | --- |
+| 0 | 1 |
+| 10 | 2 |
+| 20 | 3 |
+| 30 | 4 |
+| 40 | 5 |
+| 50 | 6 |
