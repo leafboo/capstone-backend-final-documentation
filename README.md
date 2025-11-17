@@ -1,4 +1,3 @@
-
 # Backend endpoints documentation
 - [Auth](#auth-endpoint) <br>
 - [Users](#users-endpoint) <br>
@@ -252,13 +251,12 @@ JSON payload (response):
             "publication_info": {
                 "summary": string
             },
-            "resources": [
+            "resources": [ 
                 {
                     "title": string,
                     "file_format": string,
                     "link": string
                 }
-                
             ]
         }
     ]
