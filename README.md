@@ -210,7 +210,11 @@ JSON payload (request):
 > Should contain 1 - 3 PDF files
 > Max file size of an individual file is 10 mb
 
-<br>
+JSON payload (response):
+```
+To be changed
+```
+
 
 #### Possible error responses by the server:
 
@@ -218,20 +222,16 @@ JSON payload (request):
 status: 400 | message: [MULTER ERROR]: Too many files
 - Files sent are greater than 4.
 
-`status: 400 | message: [MULTER ERROR]: File too large
+status: 400 | message: [MULTER ERROR]: File too large
 - One of the file sent is too large. 
 
-`status: 400 | message: <file name> cannot be read. Either remove it or replace it with a new one.
+status: 400 | message: <file name> cannot be read. Either remove it or replace it with a new one.
 - One of the file's contents cannot be read, thus cannot be used with the AI model. 
 ```
 
 
 <br>
 
-JSON payload (response):
-```
-To be changed
-```
 
 
 
