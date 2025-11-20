@@ -196,9 +196,6 @@ Editable Research paper columns are:
 
 ## AI endpoint
 
-> [!NOTE]
-> This endpoint is not yet in service <br>
-
 #### Extract Lit matrix table
 HTTP Method: POST <br>
 API endpoint: `/ai/extract` <br>
@@ -206,29 +203,34 @@ API endpoint: `/ai/extract` <br>
 JSON payload (request):
 ```
 {
-    "pdfURLs": string[]
+    PDF files
 }
 ```
 > [!IMPORTANT]
-> The array pdfURLs should only contain 1 - 3 PDF URLs
+> Should contain 1 - 3 PDF files
+> Max file size of an individual file is 10 mb
+
+<br>
+
+#### Possible error responses by the server:
+
+```
+status: 400 | message: [MULTER ERROR]: Too many files
+- Files sent are greater than 4.
+
+`status: 400 | message: [MULTER ERROR]: File too large
+- One of the file sent is too large. 
+
+`status: 400 | message: <file name> cannot be read. Either remove it or replace it with a new one.
+- One of the file's contents cannot be read, thus cannot be used with the AI model. 
+```
+
 
 <br>
 
 JSON payload (response):
 ```
-[
-    {
-        "title": string,
-        "authors": string,
-        "publicationYear": number,
-        "keywords": string,
-        "abstract": string,
-        "methods": string,
-        "findings": string,
-        "apa": string,
-        "ieee": string
-    }
-]
+To be changed
 ```
 
 
