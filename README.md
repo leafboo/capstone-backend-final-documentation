@@ -119,6 +119,18 @@ JSON payload (request):
     "dateCreated": string
 }
 ```
+
+#### Update Workspace Name
+HTTP Method: PUT <br>
+API endpoint: `/workspaces/:workspaceId`
+
+JSON payload (request):
+```
+{
+    "newWorkspaceName": string
+}
+```
+
 #### Delete Workspace
 HTTP Method: DELETE <br>
 API endpoint: `/workspaces/:workspaceId`
@@ -146,8 +158,7 @@ JSON payload (response):
     "Methods": string,
     "Findings": string,
     "APA": string,
-    "IEEE": string,
-    "PDFURL": string
+    "IEEE": string
 }
 ```
 #### Create new Research paper
@@ -165,8 +176,7 @@ JSON payload (request):
     "methods": string,
     "findings": string,
     "apa": string,
-    "ieee": string,
-    "pdfUrl": string
+    "ieee": string
 }
 ```
 #### Update Research paper column
@@ -192,6 +202,7 @@ Editable Research paper columns are:
 > "value" = updated value of the column to be pushed to the database
 
 
+<br><br>
 
 
 ## AI endpoint
@@ -207,12 +218,24 @@ JSON payload (request):
 }
 ```
 > [!IMPORTANT]
-> Should contain 1 - 3 PDF files
-> Max file size of an individual file is 10 mb
+> Should contain 1 - 3 PDF files. (File limit is set to 1 during development) <br>
+> Max file size of an individual file is 10 mb.
 
 JSON payload (response):
 ```
-To be changed
+[
+    {
+        "title": string,
+        "authors": string,
+        "publicationYear": number,
+        "keywords": string,
+        "objectives": string,
+        "methods": string,
+        "findings": string,
+        "apa": string,
+        "ieee": string
+    }
+]
 ```
 
 
