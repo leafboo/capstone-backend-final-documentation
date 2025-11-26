@@ -148,18 +148,17 @@ API endpoint: `/workspaces/:workspaceId/researchPapers` <br>
 
 JSON payload (response):
 ```
-{
-    "Id": number,
-    "Title": string,
-    "Authors": string,
-    "PublicationYear": number,
-    "Keywords": string,
-    "Objectives": string,
-    "Methods": string,
-    "Findings": string,
-    "APA": string,
-    "IEEE": string
-}
+[
+    {
+        "MajorObjective": string,
+        "Methods": string,
+        "MajorFindings": string,
+        "APA": string,
+        "IEEE": string,
+        "PdfKey": string
+    }
+]
+
 ```
 #### Create new Research paper
 HTTP Method: POST <br>
@@ -168,15 +167,12 @@ API endpoint: `/workspaces/:workspaceId/researchPapers` <br>
 JSON payload (request):
 ```
 {
-    "title": string,
-    "authors": string,
-    "publicationYear": number,
-    "keywords": string,
-    "objectives": string,
+    "majorObjective": string,
     "methods": string,
-    "findings": string,
+    "majorFindings": string,
     "apa": string,
-    "ieee": string
+    "ieee": string,
+    "pdfKey": string
 }
 ```
 #### Update Research paper column
@@ -192,9 +188,9 @@ JSON payload (request):
 ```
 
 Editable Research paper columns are: 
-- Keywords
+- MajorObjective
 - Methods
-- Findings
+- MajorFindings
 
 
 > [!NOTE]
@@ -225,13 +221,9 @@ JSON payload (response):
 ```
 [
     {
-        "title": string,
-        "authors": string,
-        "publicationYear": number,
-        "keywords": string,
-        "objectives": string,
+        "majorObjective": string,
         "methods": string,
-        "findings": string,
+        "majorFindings": string,
         "apa": string,
         "ieee": string
     }
