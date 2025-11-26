@@ -5,6 +5,7 @@
 - [Research Papers](#research-papers-endpoint) <br>
 - [AI](#ai-endpoint) <br>
 - [Search](#search-endpoint)
+- [PDF](#pdf-endpoint)
 
 
 
@@ -245,7 +246,7 @@ status: 400 | message: <file name> cannot be read. Either remove it or replace i
 ```
 
 
-<br>
+<br> <br>
 
 
 
@@ -298,3 +299,34 @@ JSON payload (response):
 | 30 | 4 |
 | 40 | 5 |
 | 50 | 6 |
+
+<br><br>
+
+## PDF endpoint
+#### Get view link
+JSON payload (request):
+```
+{
+    "PdfKey": string
+}
+```
+JSON payload (response): 
+```
+{
+    link
+}
+```
+
+#### Get download link
+JSON payload (request):
+```
+{
+    "PdfKey": string
+}
+```
+JSON payload (response): 
+```
+{
+    link
+}
+```
