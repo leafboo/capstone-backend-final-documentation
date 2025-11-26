@@ -151,6 +151,7 @@ JSON payload (response):
 ```
 [
     {
+        "Id": number,
         "MajorObjective": string,
         "Methods": string,
         "MajorFindings": string,
@@ -178,7 +179,7 @@ JSON payload (request):
 ```
 #### Update Research paper column
 HTTP Method: PUT <br>
-API endpoint: `/workspaces/:workspaceId/researchPapers` <br> 
+API endpoint: `/researchPapers/:researchPaperId` <br> 
 
 JSON payload (request):
 ```
@@ -197,6 +198,10 @@ Editable Research paper columns are:
 > [!NOTE]
 > "columnName" = column of research paper in the database <br>
 > "value" = updated value of the column to be pushed to the database
+
+#### Delete Research paper
+HTTP Method: DELETE <br>
+API endpoint: `/researchPapers/:researchPaperId` <br> 
 
 
 <br><br>
