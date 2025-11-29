@@ -156,7 +156,8 @@ JSON payload (response):
             "researchDesign": string,
             "localeOfTheStudy": string,
             "informantsOfTheStudy": string,
-            "dataGatheringProcedure": string
+            "dataGatheringProcedure": string,
+            "dataAnalysis": string
         },
         "majorFindings": string,
         "apa": string,
@@ -179,7 +180,8 @@ JSON payload (request):
         "researchDesign": string,
         "localeOfTheStudy": string,
         "informantsOfTheStudy": string,
-        "dataGatheringProcedure": string
+        "dataGatheringProcedure": string,
+        "dataAnalysis": string
     },
     "majorFindings": string,
     "apa": string,
@@ -239,7 +241,13 @@ JSON payload (response):
 [
     {
         "majorObjective": string,
-        "methods": string,
+        "methods": {
+            "researchDesign": string,
+            "localeOfTheStudy": string,
+            "informantsOfTheStudy": string,
+            "dataGatheringProcedure": string,
+            "dataAnalysis": string
+        },
         "majorFindings": string,
         "apa": string,
         "ieee": string
