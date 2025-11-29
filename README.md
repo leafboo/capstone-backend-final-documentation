@@ -151,13 +151,18 @@ JSON payload (response):
 ```
 [
     {
-        "Id": number,
-        "MajorObjective": string,
-        "Methods": string,
-        "MajorFindings": string,
-        "APA": string,
-        "IEEE": string,
-        "PdfKey": string
+        "majorObjective": string,
+        "methods": {
+            "researchDesign": string,
+            "localeOfTheStudy": string,
+            "informantsOfTheStudy": string,
+            "dataGatheringProcedure": string
+        },
+        "majorFindings": string,
+        "apa": string,
+        "ieee": string,
+        "pdfKey": string,
+        "pdfName": string
     }
 ]
 
@@ -170,11 +175,17 @@ JSON payload (request):
 ```
 {
     "majorObjective": string,
-    "methods": string,
+    "methods": {
+        "researchDesign": string,
+        "localeOfTheStudy": string,
+        "informantsOfTheStudy": string,
+        "dataGatheringProcedure": string
+    },
     "majorFindings": string,
     "apa": string,
     "ieee": string,
-    "pdfKey": string
+    "pdfKey": string,
+    "pdfName": string
 }
 ```
 #### Update Research paper column
@@ -309,6 +320,9 @@ JSON payload (response):
 
 ## PDF endpoint
 #### Get view link
+HTTP Method: GET <br>
+API endpoint: `/pdf/viewUrl` <br>
+
 JSON payload (request):
 ```
 {
@@ -317,21 +331,21 @@ JSON payload (request):
 ```
 JSON payload (response): 
 ```
-{
-    link
-}
+PDF view link
 ```
 
 #### Get download link
+HTTP Method: GET <br>
+API endpoint: `/pdf/downloadUrl` <br>
+
 JSON payload (request):
 ```
 {
-    "PdfKey": string
+    "PdfKey": string,
+    "PdfName": string
 }
 ```
 JSON payload (response): 
 ```
-{
-    link
-}
+PDF download link
 ```
