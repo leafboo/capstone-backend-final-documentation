@@ -48,6 +48,7 @@ JSON payload (request):
 ```
 {
     "userName": string,
+    "fullName": string,
     "email": string,
     "password": string
 }
@@ -61,8 +62,22 @@ JSON payload (response):
 {
     "Id": number,
     "UserName": string,
+    "FullName": string,
     "Email": string
 }
+```
+#### Search for a user (for adding as collaborator)
+HTTP Method: GET <br>
+API endpoint: `/users/:userName` <br>
+
+JSON payload (response):
+```
+[
+    {
+        "Id": number,
+        "UserName": string
+    }
+]
 ```
 #### Update user password
 HTTP Method: PUT <br>
@@ -329,14 +344,8 @@ JSON payload (response):
 ## PDF endpoint
 #### Get view link
 HTTP Method: GET <br>
-API endpoint: `/pdf/viewUrl` <br>
+API endpoint: `/pdf/viewUrl?pdfKey=value` <br>
 
-JSON payload (request):
-```
-{
-    "PdfKey": string
-}
-```
 JSON payload (response): 
 ```
 PDF view link
@@ -344,15 +353,8 @@ PDF view link
 
 #### Get download link
 HTTP Method: GET <br>
-API endpoint: `/pdf/downloadUrl` <br>
+API endpoint: `/pdf/downloadUrl?pdfKey=value&pdfName=value` <br>
 
-JSON payload (request):
-```
-{
-    "PdfKey": string,
-    "PdfName": string
-}
-```
 JSON payload (response): 
 ```
 PDF download link
