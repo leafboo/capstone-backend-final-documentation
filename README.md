@@ -362,5 +362,5 @@ PDF download link
 
 #### Delete PDF
 HTTP Method: DELETE <br>
-API endpoint: `/:pdfKey` <br>
+API endpoint: `/pdf/:pdfKey` <br>
 
