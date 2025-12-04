@@ -202,7 +202,6 @@ JSON payload (request):
 ```
 {
     "dateSent": string,
-    "requesterUserId": number,
     "targetUserId": number,
     "workspaceId ": number
 }
@@ -211,9 +210,29 @@ JSON payload (request):
 HTTP Method: GET <br>
 API endpoint: `/invites/sent` <br>
 
+```
+{
+    "Id": number,
+    "DateSent": string,
+    "WorkspaceId ": number,
+    "RequesterUserId": number,
+    "TargetUserId": number
+}
+```
+
 #### See all invitations sent by other users
 HTTP Method: GET <br>
 API endpoint: `/invites/fromOthers` <br>
+
+```
+{
+    "Id": number,
+    "DateSent": string,
+    "WorkspaceId ": number,
+    "RequesterUserId": number,
+    "TargetUserId": number
+}
+```
 
 #### Delete invites to other users / Reject invites from other users
 HTTP Method: DELETE <br>
