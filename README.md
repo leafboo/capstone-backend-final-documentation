@@ -99,6 +99,9 @@ JSON payload (request):
     "dateCreated": string
 }
 ```
+> [!NOTE]
+> Date format is: yyyy-mm-dd
+
 
 #### Get all user's workspaces
 HTTP Method: GET <br>
@@ -206,10 +209,14 @@ JSON payload (request):
     "workspaceId ": number
 }
 ```
+> [!NOTE]
+> Date format is: yyyy-mm-dd
+
 #### See all invitations the user sent to others
 HTTP Method: GET <br>
 API endpoint: `/invites/sent` <br>
 
+JSON payload (response):
 ```
 {
     "Id": number,
@@ -224,6 +231,7 @@ API endpoint: `/invites/sent` <br>
 HTTP Method: GET <br>
 API endpoint: `/invites/fromOthers` <br>
 
+JSON payload (response):
 ```
 {
     "Id": number,
