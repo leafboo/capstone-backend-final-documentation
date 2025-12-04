@@ -2,6 +2,7 @@
 - [Auth](#auth-endpoint) <br>
 - [Users](#users-endpoint) <br>
 - [Workspaces](#workspaces-endpoint) <br>
+- [Invites](#invites) <br>
 - [Research Papers](#research-papers-endpoint) <br>
 - [AI](#ai-endpoint) <br>
 - [Search](#search-endpoint)
@@ -66,19 +67,6 @@ JSON payload (response):
     "Email": string
 }
 ```
-#### Search for a user (for adding as collaborator)
-HTTP Method: GET <br>
-API endpoint: `/users/:userName` <br>
-
-JSON payload (response):
-```
-[
-    {
-        "Id": number,
-        "UserName": string
-    }
-]
-```
 #### Update user password
 HTTP Method: PUT <br>
 API endpoint: `/users/me/password` <br> 
@@ -100,33 +88,9 @@ API endpoint: `/users/me` <br>
 
 
 ## Workspaces endpoint
-#### All Workspaces
-HTTP Method: GET <br>
-API endpoint: `/workspaces` <br> 
-
-JSON payload (response):
-```
-{
-    "Id": number,
-    "Name": string,
-    "DateCreated": string
-}
-```
-#### Workspace
-HTTP Method: GET <br>
-API endpoint: `/workspaces/:workspaceId` <br> 
-
-JSON payload (response):
-```
-{
-    "Id": number,
-    "Name": string,
-    "DateCreated": string
-}
-```
-#### Create new Workspace
+#### Create new workspace
 HTTP Method: POST <br>
-API endpoint: `/workspaces` <br> 
+API endpoint: `/workspaces`
 
 JSON payload (request):
 ```
@@ -135,6 +99,71 @@ JSON payload (request):
     "dateCreated": string
 }
 ```
+
+#### Get all user's workspaces
+HTTP Method: GET <br>
+API endpoint: `/workspaces/all`
+
+JSON payload (response):
+```
+[
+    {
+        "Id": number,
+        "Name": string,
+        "DateCreated": string
+    }
+]
+```
+
+#### Get all user's owned workspaces
+HTTP Method: GET <br>
+API endpoint: `/workspaces/owned`
+
+JSON payload (response):
+```
+[
+    {
+        "Id": number,
+        "Name": string,
+        "DateCreated": string
+    }
+]
+```
+
+#### Get the workspaces shared by other users
+HTTP Method: GET <br>
+API endpoint: `/workspaces/shared`
+
+JSON payload (response):
+```
+[
+    {
+        "Id": number,
+        "Name": string,
+        "DateCreated": string
+    }
+]
+```
+
+#### Get the individual workspace details
+HTTP Method: GET <br>
+API endpoint: `/workspaces/:workspaceId`
+
+JSON payload (response):
+```
+{
+    "Id": number,
+    "Name": string,
+    "DateCreated": string
+}
+```
+
+#### Delete a workspace
+HTTP Method: DELETE <br>
+API endpoint: `/workspaces/:workspaceId`
+
+> [!IMPORTANT]
+> Only users who created the workspace can delete it
 
 #### Update Workspace Name
 HTTP Method: PUT <br>
@@ -147,18 +176,67 @@ JSON payload (request):
 }
 ```
 
-#### Delete Workspace
-HTTP Method: DELETE <br>
-API endpoint: `/workspaces/:workspaceId`
 
+<br><br>
+
+
+## Invites
+#### Search for a user (for inviting into a workspace)
+HTTP Method: GET <br>
+API endpoint: `/users/:userName` <br>
+
+JSON payload (response):
+```
+[
+    {
+        "Id": number,
+        "UserName": string
+    }
+]
+```
+#### Invite a user to a workspace
+HTTP Method: POST <br>
+API endpoint: `/invites` <br>
+
+JSON payload (request):
+```
+{
+    "dateSent": string,
+    "requesterUserId": number,
+    "targetUserId": number,
+    "workspaceId ": number
+}
+```
+#### See all invitations the user sent to others
+HTTP Method: GET <br>
+API endpoint: `/invites/sent` <br>
+
+#### See all invitations sent by other users
+HTTP Method: GET <br>
+API endpoint: `/invites/fromOthers` <br>
+
+#### Delete invites to other users / Reject invites from other users
+HTTP Method: DELETE <br>
+API endpoint: `/invites/:invitationId` <br>
+
+#### Accept workspace invitation
+HTTP Method: POST <br>
+API endpoint: `/invites/accept` <br>
+```
+{
+    "workspaceId": number,
+    "invitationId": number
+}
+```
 
 <br><br>
 
 
 
 
+
 ## Research Papers endpoint
-#### All Reseach papers
+#### All Research papers
 HTTP Method: GET <br>
 API endpoint: `/workspaces/:workspaceId/researchPapers` <br> 
 
@@ -363,4 +441,3 @@ PDF download link
 #### Delete PDF
 HTTP Method: DELETE <br>
 API endpoint: `/pdf/:pdfKey` <br>
-
