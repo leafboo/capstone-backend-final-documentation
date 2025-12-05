@@ -221,9 +221,8 @@ JSON payload (response):
 {
     "Id": number,
     "DateSent": string,
-    "WorkspaceId ": number,
-    "RequesterUserId": number,
-    "TargetUserId": number
+    "TargetUserName": string,
+    "WorkspaceId ": number
 }
 ```
 
@@ -236,9 +235,8 @@ JSON payload (response):
 {
     "Id": number,
     "DateSent": string,
-    "WorkspaceId ": number,
-    "RequesterUserId": number,
-    "TargetUserId": number
+    "RequesterUserName": string,
+    "WorkspaceId ": number
 }
 ```
 
