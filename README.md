@@ -103,6 +103,9 @@ JSON payload (response):
 HTTP Method: DELETE <br>
 API endpoint: `/workspaces/:workspaceId/shared/leave`
 
+> [!IMPORTANT]
+> Only users in a shared workspace whose role is "Member" can leave the workspace
+
 #### Get the individual workspace details
 HTTP Method: GET <br>
 API endpoint: `/workspaces/:workspaceId`
