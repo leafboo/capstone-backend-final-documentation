@@ -41,17 +41,8 @@ JSON payload (response):
     "Email": string
 }
 ```
-#### Update user password
-HTTP Method: PUT <br>
-API endpoint: `/users/me/password` <br> 
 
-JSON payload (request):
-```
-{
-    "oldPassword": string,
-    "newPassword": string
-}
-```
+
 #### Delete user account
 HTTP Method: DELETE <br>
 API endpoint: `/users/me` <br> 
@@ -107,6 +98,10 @@ JSON payload (response):
     }
 ]
 ```
+
+#### Leave a shared workspace
+HTTP Method: DELETE <br>
+API endpoint: `/workspaces/:workspaceId/shared/leave`
 
 #### Get the individual workspace details
 HTTP Method: GET <br>
