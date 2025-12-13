@@ -42,6 +42,7 @@ JSON payload (response):
 }
 ```
 
+<br>
 
 #### Delete user account
 HTTP Method: DELETE <br>
@@ -67,6 +68,7 @@ JSON payload (request):
 > [!NOTE]
 > Date format is: yyyy-mm-dd
 
+<br>
 
 #### Get all user's owned workspaces
 HTTP Method: GET <br>
@@ -82,6 +84,8 @@ JSON payload (response):
     }
 ]
 ```
+
+<br>
 
 #### Get the workspaces shared by other users
 HTTP Method: GET <br>
@@ -99,12 +103,16 @@ JSON payload (response):
 ]
 ```
 
+<br>
+
 #### Leave a shared workspace
 HTTP Method: DELETE <br>
 API endpoint: `/workspaces/:workspaceId/shared/leave`
 
 > [!IMPORTANT]
 > Only users in a shared workspace whose role is "Member" can leave the workspace
+
+<br>
 
 #### Get the individual workspace details
 HTTP Method: GET <br>
@@ -119,6 +127,8 @@ JSON payload (response):
 }
 ```
 
+<br>
+
 #### Get all the users in a workspace
 HTTP Method: GET <br>
 API endpoint: `/workspaces/:workspaceId/users`
@@ -132,12 +142,18 @@ API endpoint: `/workspaces/:workspaceId/users`
 ]
 ```
 
+<br>
+
 #### Delete a workspace
 HTTP Method: DELETE <br>
 API endpoint: `/workspaces/:workspaceId`
 
+<br>
+
 > [!IMPORTANT]
 > Only users who created the workspace can delete it
+
+<br>
 
 #### Update Workspace Name
 HTTP Method: PUT <br>
@@ -168,6 +184,9 @@ JSON payload (response):
     }
 ]
 ```
+
+<br>
+
 #### Invite a user to a workspace
 HTTP Method: POST <br>
 API endpoint: `/invites` <br>
@@ -183,6 +202,8 @@ JSON payload (request):
 > [!NOTE]
 > Date format is: yyyy-mm-dd
 
+<br>
+
 #### See all invitations the user sent to others
 HTTP Method: GET <br>
 API endpoint: `/invites/sent` <br>
@@ -196,6 +217,8 @@ JSON payload (response):
     "WorkspaceId ": number
 }
 ```
+
+<br>
 
 #### See all invitations sent by other users
 HTTP Method: GET <br>
@@ -211,9 +234,13 @@ JSON payload (response):
 }
 ```
 
+<br>
+
 #### Delete invites to other users / Reject invites from other users
 HTTP Method: DELETE <br>
 API endpoint: `/invites/:invitationId` <br>
+
+<br>
 
 #### Accept workspace invitation
 HTTP Method: POST <br>
@@ -255,8 +282,10 @@ JSON payload (response):
         "pdfName": string
     }
 ]
-
 ```
+
+<br>
+
 #### Create new Research paper
 HTTP Method: POST <br>
 API endpoint: `/workspaces/:workspaceId/researchPapers` <br> 
@@ -280,6 +309,9 @@ JSON payload (request):
     "pdfHash": string
 }
 ```
+
+<br>
+
 #### Update Research paper column
 HTTP Method: PUT <br>
 API endpoint: `/researchPapers/:researchPaperId` <br> 
@@ -301,6 +333,8 @@ Editable Research paper columns are:
 > [!NOTE]
 > "columnName" = column of research paper in the database <br>
 > "value" = updated value of the column to be pushed to the database
+
+<br>
 
 #### Delete Research paper
 HTTP Method: DELETE <br>
@@ -374,10 +408,9 @@ status: 400 | message: The extracted details of the file you sent is already in 
 
 
 ## Search endpoint
-#### Get research papers using SerpAPI
+#### Normal search (search for research papers)
 HTTP Method: GET <br>
-API endpoint: `/search/papers?q={encodeURIComponent(queryValue)}&offset={encodeURIComponent(offsetValue)}` <br>
-
+API endpoint: `/search/papers?q={encodeURIComponent(queryValue)}&offset={offsetValue}` <br>
 
 
 JSON payload (response):
@@ -422,7 +455,26 @@ JSON payload (response):
 | 40 | 5 |
 | 50 | 6 |
 
+<br>
+
+#### Display the papers within the specified year range
+HTTP Method: GET <br>
+API endpoint: `/search/papers?q={encodeURIComponent(queryValue)}&offset={offsetValue}&fromYear={value}&toYear={value}` <br>
+
+> [!NOTE]
+> `fromYear` - Specifies which year to start (the year before it will be omitted) <br>
+> `toYear` - Specifies which year to end at (the year after it will be omitted) <br><br>
+> Any one of them can be empty but AT LEAST ONE MUST HAVE A VALUE <br>
+
+JSON payload (response):
+
+```
+    The same structure as the normal results.
+```
+
 <br><br>
+
+
 
 ## PDF endpoint
 #### Get view link
@@ -434,6 +486,8 @@ JSON payload (response):
 PDF view link
 ```
 
+<br>
+
 #### Get download link
 HTTP Method: GET <br>
 API endpoint: `/pdf/downloadUrl?pdfKey=value&pdfName=value` <br>
@@ -442,6 +496,8 @@ JSON payload (response):
 ```
 PDF download link
 ```
+
+<br>
 
 #### Delete PDF
 HTTP Method: DELETE <br>
