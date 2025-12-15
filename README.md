@@ -410,6 +410,9 @@ status: 400 | message: [MULTER ERROR]: File too large
 status: 400 | message: <file name> cannot be read. Either remove it or replace it with a new one.
 - One of the file's contents cannot be read, thus cannot be used with the AI model. 
 
+status: 400 | message: <file name> is blocked because it is image-only. Either remove it or replace it with a new one.
+- One of the file's contents is blocked because it is image-only, thus cannot be used with the AI model. 
+
 status: 400 | message: The extracted details of the file you sent is already in this workspace.
 - The file sent is already extracted and saved in the workspace
 ```
