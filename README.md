@@ -44,6 +44,19 @@ JSON payload (response):
 
 <br>
 
+#### Update User name
+HTTP Method: PUT <br>
+API endpoint: `/users/me/username` <br> 
+
+JSON payload (request):
+```
+{
+    "newName": string
+}
+```
+
+<br>
+
 #### Delete user account
 HTTP Method: DELETE <br>
 API endpoint: `/users/me` <br> 
